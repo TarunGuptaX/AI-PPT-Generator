@@ -88,7 +88,7 @@ def generate_image(img_prompt, slide_no = 1):
 
   from PIL import Image
   img = Image.open(f"ai_image_{slide_no}.jpeg")
-  return img
+  return url
 
 
 
@@ -137,9 +137,9 @@ def run_agent(leader_agent,query):
   user query given below:
 
   """
-  prompt = prompt + query
+  prompt+= query
   prompt = agent_prompt(prompt)
-
+  
   response = leader_agent.invoke({'messages':[{'role':'user','content':prompt}]})
   code = response['messages'][-1].content[-1]['text']
   return code
@@ -164,7 +164,8 @@ if (user_input) and (leader_agent):
     if st.button("Click to generate: ", key="generate_img_button"):
       with st.spinner("Running Agent.."):
         try:
-          generate_image(user_input)
+          img = generate_image(user_input)
+          st.image(img)
         except:
           url = f"https://image.pollinations.ai/{user_input}"
           time.sleep(4)
