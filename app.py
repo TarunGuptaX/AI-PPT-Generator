@@ -158,7 +158,7 @@ tab1, tab2, tab3 = st.tabs(["GENERATE IMAGE",
                             "FETCH LATEST NEWS",
                             "GENERATE PPT"])
 
-if (user_input) and (agent):
+if (user_input) and (leader_agent):
   # TAB 1:
   with tab1:
     if st.button("Click to generate: ", key="generate_img_button"):
