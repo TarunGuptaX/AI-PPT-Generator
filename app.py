@@ -45,8 +45,8 @@ elif all(ALL_API):
                                             'gemini-3.5-flash',
                                             'gemini-3.5-flash-lite'])
   )
-    else:
-      st.sidebar.info("Check API Key's")
+  else:
+    st.sidebar.info("Check API Key's")
 
 # ==========Back-End code==========
 
